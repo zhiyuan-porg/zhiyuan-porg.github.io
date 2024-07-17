@@ -10,8 +10,63 @@
         </author>
         <description></description>
         <language>zh-cn</language>
-        <pubDate>Tue, 16 Jul 2024 00:03:55 +0800</pubDate>
-        <lastBuildDate>Tue, 16 Jul 2024 00:03:55 +0800</lastBuildDate>
+        <pubDate>Wed, 17 Jul 2024 10:13:03 +0800</pubDate>
+        <lastBuildDate>Wed, 17 Jul 2024 10:13:03 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/</guid>
+            <title></title>
+            <link>https://zhiyuan-porg.github.io/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/</link>
+            <pubDate>Wed, 17 Jul 2024 10:13:03 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;http协议与request&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#http协议与request&#34;&gt;#&lt;/a&gt; Http 协议与 Request&lt;/h1&gt;
+&lt;h3 id=&#34;http概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#http概述&#34;&gt;#&lt;/a&gt; Http 概述&lt;/h3&gt;
+&lt;h5 id=&#34;概念&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概念&#34;&gt;#&lt;/a&gt; 概念&lt;/h5&gt;
+&lt;p&gt;HTTP（Hyper　Text　Transｆｅｒ　Ｐｒｏｔｏｃｏｌ超文本传输协议） 应用层协议，运行在ＴＣＰ传输层协议之上，作用是指定传输格式，且通信双方都要遵守。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tip：HTTP 协议的默认端口是８０哦&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h5&gt;
+&lt;p&gt;由请求报文和响应报文组成；无状态协议，不记录用户访问状态。&lt;/p&gt;
+&lt;h5 id=&#34;组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#组成&#34;&gt;#&lt;/a&gt; 组成&lt;/h5&gt;
+&lt;p&gt;请求行、请求头、请求体&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;请求行：&lt;/strong&gt;      包括请求的方式（GET、POST、PUT、DELETE 等）、地址（URL）以及协议的版本&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;POST 方式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;GET 方式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;地址栏&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;参数不会在地址栏显示出来&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;参数会拼接在请求的 URL 后面，以查询字符方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;大小&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;理论上无大小限制，使用流的方式发送数据&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;受浏览器限制，通常是１K&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;安全性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在请求体中发送，参数不外显，安全性相对来说较高&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在请求行中发送，参数外显，安全性较低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;缓存&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不使用缓存&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可能会使用缓存访问静态资源，使用时状态码是３０４&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;请求头：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/07/16/hello-world/</guid>
             <title>Hello World</title>

@@ -7,6 +7,14 @@
     "home_page_url": "https://zhiyuan-porg.github.io",
     "items": [
         {
+            "id": "https://zhiyuan-porg.github.io/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/",
+            "url": "https://zhiyuan-porg.github.io/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/",
+            "title": "",
+            "date_published": "2024-07-17T02:13:03.187Z",
+            "content_html": "<h1 id=\"http协议与request\"><a class=\"anchor\" href=\"#http协议与request\">#</a> Http 协议与 Request</h1>\n<h3 id=\"http概述\"><a class=\"anchor\" href=\"#http概述\">#</a> Http 概述</h3>\n<h5 id=\"概念\"><a class=\"anchor\" href=\"#概念\">#</a> 概念</h5>\n<p>HTTP（Hyper　Text　Transｆｅｒ　Ｐｒｏｔｏｃｏｌ超文本传输协议） 应用层协议，运行在ＴＣＰ传输层协议之上，作用是指定传输格式，且通信双方都要遵守。</p>\n<blockquote>\n<p>Tip：HTTP 协议的默认端口是８０哦</p>\n</blockquote>\n<h5 id=\"特点\"><a class=\"anchor\" href=\"#特点\">#</a> 特点</h5>\n<p>由请求报文和响应报文组成；无状态协议，不记录用户访问状态。</p>\n<h5 id=\"组成\"><a class=\"anchor\" href=\"#组成\">#</a> 组成</h5>\n<p>请求行、请求头、请求体</p>\n<p><strong>请求行：</strong>      包括请求的方式（GET、POST、PUT、DELETE 等）、地址（URL）以及协议的版本</p>\n<table>\n<thead>\n<tr>\n<th style=\"text-align:center\"></th>\n<th style=\"text-align:center\">POST 方式</th>\n<th style=\"text-align:center\">GET 方式</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:center\">地址栏</td>\n<td style=\"text-align:center\">参数不会在地址栏显示出来</td>\n<td style=\"text-align:center\">参数会拼接在请求的 URL 后面，以查询字符方式</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">大小</td>\n<td style=\"text-align:center\">理论上无大小限制，使用流的方式发送数据</td>\n<td style=\"text-align:center\">受浏览器限制，通常是１K</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">安全性</td>\n<td style=\"text-align:center\">在请求体中发送，参数不外显，安全性相对来说较高</td>\n<td style=\"text-align:center\">在请求行中发送，参数外显，安全性较低</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">缓存</td>\n<td style=\"text-align:center\">不使用缓存</td>\n<td style=\"text-align:center\">可能会使用缓存访问静态资源，使用时状态码是３０４</td>\n</tr>\n</tbody>\n</table>\n<p><strong>请求头：</strong></p>\n<p></p>\n<p></p>\n<p></p>\n<p></p>\n",
+            "tags": []
+        },
+        {
             "id": "https://zhiyuan-porg.github.io/2024/07/16/hello-world/",
             "url": "https://zhiyuan-porg.github.io/2024/07/16/hello-world/",
             "title": "Hello World",
