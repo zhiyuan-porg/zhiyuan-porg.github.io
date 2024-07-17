@@ -13,8 +13,7 @@
         <id>https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/</id>
         <title>Response And ServletContext</title>
         <link rel="alternate" href="https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/"/>
-        <content type="html">&lt;h1 id=&#34;response-and-servletcontext&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#response-and-servletcontext&#34;&gt;#&lt;/a&gt; Response And ServletContext&lt;/h1&gt;
-&lt;h2 id=&#34;1http响应概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1http响应概述&#34;&gt;#&lt;/a&gt; 1.Http 响应概述&lt;/h2&gt;
+        <content type="html">&lt;h2 id=&#34;1http响应概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1http响应概述&#34;&gt;#&lt;/a&gt; 1.Http 响应概述&lt;/h2&gt;
 &lt;h3 id=&#34;11http响应信息的组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11http响应信息的组成&#34;&gt;#&lt;/a&gt; 1.1HTTP 响应信息的组成&lt;/h3&gt;
 &lt;p&gt;响应行、响应头、响应体&lt;/p&gt;
 &lt;h3 id=&#34;12响应行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12响应行&#34;&gt;#&lt;/a&gt; 1.2 响应行&lt;/h3&gt;
