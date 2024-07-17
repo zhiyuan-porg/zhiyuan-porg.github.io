@@ -10,11 +10,103 @@
         </author>
         <description></description>
         <language>zh-cn</language>
-        <pubDate>Wed, 17 Jul 2024 10:13:03 +0800</pubDate>
-        <lastBuildDate>Wed, 17 Jul 2024 10:13:03 +0800</lastBuildDate>
+        <pubDate>Wed, 17 Jul 2024 17:49:03 +0800</pubDate>
+        <lastBuildDate>Wed, 17 Jul 2024 17:49:03 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/</guid>
+            <title>Response And ServletContext</title>
+            <link>https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/</link>
+            <pubDate>Wed, 17 Jul 2024 17:49:03 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;response-and-servletcontext&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#response-and-servletcontext&#34;&gt;#&lt;/a&gt; Response And ServletContext&lt;/h1&gt;
+&lt;h3 id=&#34;1http响应概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1http响应概述&#34;&gt;#&lt;/a&gt; 1.Http 响应概述&lt;/h3&gt;
+&lt;h5 id=&#34;11http响应信息的组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11http响应信息的组成&#34;&gt;#&lt;/a&gt; 1.1HTTP 响应信息的组成&lt;/h5&gt;
+&lt;p&gt;响应行、响应头、响应体&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.1 响应行&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由协议及版本、响应状态码、状态信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e.g. HTTP/1.1    200    ok&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其中，响应状态码又分为五类：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;状态码&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指示信息；表示请求已接收，继续处理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;成功；&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;重定向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;客户端错误；语法错误 or 无法实现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;服务端错误&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;tips: 常见的状态码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;200：正确得到响应数据&lt;/p&gt;
+&lt;p&gt;302：页面重定向&lt;/p&gt;
+&lt;p&gt;304：使用了本地缓存&lt;/p&gt;
+&lt;p&gt;400：请求参数错误&lt;/p&gt;
+&lt;p&gt;404：资源不存在&lt;/p&gt;
+&lt;p&gt;405：请求的方法错误&lt;/p&gt;
+&lt;p&gt;415： 无法处理的媒体格式&lt;/p&gt;
+&lt;p&gt;500： 服务器内部错误&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;1.2.2 响应头&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由各种键值组成，键固定值可变。常见的响应头如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;响应头信息&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Location&lt;/td&gt;
+&lt;td&gt;重定向要跳转的地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content-Type&lt;/td&gt;
+&lt;td&gt;设置数据类型及字符集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Refresh&lt;/td&gt;
+&lt;td&gt;设置稍后跳转的延迟时间及页面路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content-Disposition&lt;/td&gt;
+&lt;td&gt;设置内容的处理方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;1.2.3 响应体&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;封装服务器要返回的数据，而且可以是任意数据&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;tips:&lt;/strong&gt; Get 请求虽然没有请求体，但它有响应体嘞&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;httpservletresponse对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#httpservletresponse对象&#34;&gt;#&lt;/a&gt; HttpServletResponse 对象&lt;/h3&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/</guid>
-            <title></title>
+            <title>Http协议与Request</title>
             <link>https://zhiyuan-porg.github.io/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/</link>
             <pubDate>Wed, 17 Jul 2024 10:13:03 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;http协议与request&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#http协议与request&#34;&gt;#&lt;/a&gt; Http 协议与 Request&lt;/h1&gt;
