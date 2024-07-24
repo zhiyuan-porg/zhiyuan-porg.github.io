@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="只想摆烂，阿巴阿巴阿巴" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="只想摆烂，阿巴阿巴阿巴" type="application/atom+xml"><link rel="alternate" type="application/json" title="只想摆烂，阿巴阿巴阿巴" href="https://zhiyuan-porg.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.9"><link rel="modulepreload" href="/js/chunk-DQ433746.js"></link><link rel="modulepreload" href="/js/chunk-QAWHJ5B3.js"></link><link rel="modulepreload" href="/js/chunk-U6PLE2QJ.js"></link><link rel="modulepreload" href="/js/copy-tex-IW4I6ZZ7.js"></link><link rel="modulepreload" href="/js/index.esm-NJFSLYNY.js"></link><link rel="modulepreload" href="/js/post-KXZMYCAR.js"></link><link rel="modulepreload" href="/js/quicklink-BG4KCV56.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-v9djdl.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-y8kdvd.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-m9ogrk.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-o3jeg9.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-q2o25r.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3pzly.jpg" as="image" fetchpriority="high"><link rel="canonical" href="https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/"><title></title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline"></h1><div class="meta"><span class="item" title="作成日：2024-07-23 10:01:03"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">投稿日</span><time itemprop="dateCreated datePublished" datetime="2024-07-23T10:01:03+08:00">2024-07-23</time></span><span class="item" title="単語数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">単語数</span><span>4.3k</span><span class="text">単語</span></span><span class="item" title="読書の時間"><span class="icon"><i class="ic i-clock"></i></span><span class="text">読書の時間</span><span>4 分</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="ナビゲーションバーの切り替え"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">拾光</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-v9djdl.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-y8kdvd.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-m9ogrk.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-o3jeg9.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-q2o25r.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3pzly.jpg&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">ホーム</a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-cn"><link itemprop="mainEntityOfPage" href="https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/maomao.png"/><meta itemprop="name" content="SanYue"/><meta itemprop="description" content=", "/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="只想摆烂，阿巴阿巴阿巴"/></span><div class="body md" itemprop="articleBody"><h2 id="jsp-mvc"><a class="anchor" href="#jsp-mvc">#</a> JSP-MVC</h2>
+<h2 id="1jsp"><a class="anchor" href="#1jsp">#</a> 1.JSP</h2>
+<h3 id="11html和servelet的弊端"><a class="anchor" href="#11html和servelet的弊端">#</a> 1.1.HTML 和 Servelet 的弊端</h3>
+<p>​	<strong>HTML：</strong></p>
+<p>​	优点：方便页面的布局及美化</p>
+<p>​	缺点：不能制作动态内容</p>
+<p>​	<strong>Servlet：</strong></p>
+<p>​	优点：可以制作动态内容</p>
+<pre><code>缺点：不方便写CSS和JS代码
+</code></pre>
+<blockquote>
+<p>二者的优缺点刚好互补，两者综合起来就刚刚好是 JSP 的设计思想</p>
+</blockquote>
+<h3 id="12jsp简介"><a class="anchor" href="#12jsp简介">#</a> 1.2.JSP 简介</h3>
+<p>​	以 Java 作为脚本语言，部署在网络服务器上，可以根据客户端的请求内容动态生成 HTML、XML 或其他格式文档的 Web 网页，然后返回给请求者。另外，JSP 的标签库 JSTL 提供了类似于 Java 中的 if、switch、for 等功能，开发者可以更方便地实现条件渲染和列表渲染等操作，而且也不受跨平台的限制。</p>
+<blockquote>
+<p>**Tips：**JSP 编译器可以将 JSP 文件编译成用 Java 代码写的 Servlet，然后 Servlet 再编译生成字节码文件。JSP 本质上就是一个 Servlet，属于动态技术。</p>
+</blockquote>
+<h3 id="13jsp语法"><a class="anchor" href="#13jsp语法">#</a> 1.3.JSP 语法</h3>
+<h4 id="131输出脚本"><a class="anchor" href="#131输出脚本">#</a> 1.3.1. 输出脚本</h4>
+<p>​	<strong>作用：</strong> 直接输出变量值或对表达式进行计算</p>
+<pre><code class="language-jsp">&lt;%= 变量名称或表达式%&gt;  // 相当于Servlet的out.print()
+</code></pre>
+<h4 id="132声明"><a class="anchor" href="#132声明">#</a> 1.3.2. 声明</h4>
+<pre><code>**作用：** 声明全局变量或方法
+</code></pre>
+<pre><code class="language-jsp">&lt;%! 全局变量或方法 %&gt;
+</code></pre>
+<h4 id="133插入代码片段"><a class="anchor" href="#133插入代码片段">#</a> 1.3.3. 插入代码片段</h4>
+<pre><code>**作用：** 插入Java代码
+</code></pre>
+<pre><code class="language-jsp">&lt;% Java代码 %&gt; 
+</code></pre>
+<h3 id="14jsp九大内置对象"><a class="anchor" href="#14jsp九大内置对象">#</a> 1.4.JSP 九大内置对象</h3>
+<p>​	<strong>PageContext:</strong> 页面域</p>
+<p>​	<strong>Request：</strong> HttpServletRequest (请求域)</p>
+<p>​	<strong>Session：</strong> 会话域</p>
+<p>​	<strong>Application：</strong> 上下文域</p>
+<blockquote>
+<p>以上为四大域对象， 从大到小依次为 Application &gt; Session &gt; Request &gt; PageContext</p>
+<p><strong>相关的方法：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">作用域</th>
+<th style="text-align:center">Java 代码</th>
+<th style="text-align:center">EL 的写法</th>
+<th style="text-align:center">范围大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">页面域</td>
+<td style="text-align:center">&lt;% = pageContext.getAttribute (&quot;键名&quot;) %&gt;</td>
+<td style="text-align:center" pageScope.键名="">$</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">请求域</td>
+<td style="text-align:center">&lt;% = request.getAttribute (&quot;键名&quot;) %&gt;</td>
+<td style="text-align:center" requestScope.键名="">$</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">会话域</td>
+<td style="text-align:center">&lt;% = session.getAttribute (&quot;键名&quot;) %&gt;</td>
+<td style="text-align:center" sessionScope.键名="">$</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">上下文域</td>
+<td style="text-align:center">&lt;% = application.getAttribute (&quot;键名&quot;) %&gt;</td>
+<td style="text-align:center" applicationScope.键名="">$</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">自动查找</td>
+<td style="text-align:center">&lt;% = pageContext.findAttribute (&quot;键名&quot;) %&gt;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>​	<strong>Response：</strong> HttpServletResponse</p>
+<p>​	<strong>Out</strong></p>
+<p>​	<strong>Config：</strong> ServletConfig</p>
+<p>​	<strong>Page:</strong> 当前页面的引用，就是 this</p>
+<p>​	<strong>Exception：</strong> 封装了出现的异常， 只有在错误页面的中才会存在</p>
+<h4 id="141pagecontext域"><a class="anchor" href="#141pagecontext域">#</a> 1.4.1PageContext 域</h4>
+<p>​	PageContext 域是 servlet 中 4 个域对象中最后一个了，而且大小也是<strong>最小的</strong>，只在当前页面下生效，且在不同的页面下不能实现页面共享（即使是一次请求）</p>
+<p>​	有关的方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">void setAttribute(String key, Object value)</td>
+<td style="text-align:center">向页面域中添加键和值</td>
+</tr>
+<tr>
+<td style="text-align:center">Object getAttribute(String key)</td>
+<td style="text-align:center">从页面域中得到值</td>
+</tr>
+<tr>
+<td style="text-align:center">void removeAttribute(String key)</td>
+<td style="text-align:center">删除页面域中键值对</td>
+</tr>
+<tr>
+<td style="text-align:center">Object findAttribute(String key)</td>
+<td style="text-align:center">自动从四个作用域中去查某个键，从小到大的范围来查找，如果找到就停止。如果没有找到，返回 null，<strong>该方法是页面域独有的</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="142exception对象"><a class="anchor" href="#142exception对象">#</a> 1.4.2Exception 对象</h4>
+<p>​	<strong>Exception 属于 JSP 的九大内置对象，但是只有错误页面才会生成该对象，普通的 JSP 页面不会存在 Exception 对象</strong></p>
+<blockquote>
+<p>​	<strong>warning：</strong></p>
+<p>​	(1) 当前页面只有设置了 <strong>isErrorPage = true</strong> 时才可以使用 exception 内置对象</p>
+<p>​	(2) 常规页面只有八大内置对象，只有错误页面才有九大内置对象</p>
+</blockquote>
+<h2 id="2el表达式"><a class="anchor" href="#2el表达式">#</a> 2.EL 表达式</h2>
+<p>​	<strong>语法</strong></p>
+<pre><code class="language-jsp">$&#123; 变量名或表达式&#125;
+</code></pre>
+<h3 id="21食用说明"><a class="anchor" href="#21食用说明">#</a> 2.1. 食用说明</h3>
+<p>​	<strong>变量名：</strong> 变量名即可以是诸如 x, y, z 这样的普通变量，也可以是 Object、List、Map、数组或者 JavaBean 等</p>
+<blockquote map[xiaoshabi]="">
+<p>Tips: 键名中如果有特殊字符时，可以使用双引号或者单引号将其引起来。 e.g. $</p>
+</blockquote>
+<p>​	<strong>表达式：</strong> EL 表达式中的表达式可以包含常规的算术表达式（ + 、 - 、* 、/ 、%）、比较表达式（ == 、 != 、&lt;、&lt;=、&gt; 、&gt;=）、逻辑表达式（&amp;&amp; 、|| 、！）、三元运算以及判空表达式（${ empty 变量名}）</p>
+<h2 id="3jstl标签库"><a class="anchor" href="#3jstl标签库">#</a> 3.JSTL 标签库</h2>
+<p>​	使用时先导入 jar 包</p>
+<h3 id="31相关标签"><a class="anchor" href="#31相关标签">#</a> 3.1 相关标签</h3>
+<p>**&lt;c:if test=&quot;条件判断表达式&quot;&gt; ** 条件判断</p>
+<p><strong>&lt;c:choose&gt;</strong> 多分支判断</p>
+<blockquote>
+<p><strong>类似于 switch，层级结构为：</strong></p>
+<pre><code class="language-jsp">&lt;c:choose&gt;
+    &lt;c:when test = &quot;条件表达式&quot;&gt;
+   	 	xxxxxxxx
+    &lt;/c:when&gt;
+    //默认条件，相当于default
+    &lt;c:otherwise&gt;
+        xxxxxxx
+    &lt;/c:otherwise&gt;
+&lt;/c:choose
+</code></pre>
+</blockquote>
+<p><strong>&lt;c:forEach&gt;</strong> 循环渲染</p>
+<blockquote>
+<p><strong>类似于 for 语句，相关的参数有</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">EL 支持</th>
+<th style="text-align:center">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">items</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">数组或集合</td>
+</tr>
+<tr>
+<td style="text-align:center">var</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">String</td>
+</tr>
+<tr>
+<td style="text-align:center">varStatus</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">String</td>
+</tr>
+<tr>
+<td style="text-align:center">begin</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">int</td>
+</tr>
+<tr>
+<td style="text-align:center">end</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">int</td>
+</tr>
+<tr>
+<td style="text-align:center">step</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">int</td>
+</tr>
+</tbody>
+</table>
+<p>其中<strong> varStatus</strong> 还有一些子属性（虽然也不是很常用）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">当前元素的索引号，从 0 开始</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">遍历到当前位置，一共遍历了多少个元素（默认从 1 开始）</td>
+</tr>
+<tr>
+<td style="text-align:center">first</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">如果当前遍历的是第 1 个元素，则返回 true</td>
+</tr>
+<tr>
+<td style="text-align:center">last</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">如果当前遍历的是最后 1 个元素，则返回 true</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="4三层架构-and-mvc"><a class="anchor" href="#4三层架构-and-mvc">#</a> 4. 三层架构 And MVC</h2>
+<h3 id="41三层架构"><a class="anchor" href="#41三层架构">#</a> 4.1. 三层架构</h3>
+<p>​	三层架构分为控制层（Controller 层）、业务层（Service 层）、持久层（Dao 层）</p>
+<h4 id="411controller层表现层-web层"><a class="anchor" href="#411controller层表现层-web层">#</a> 4.1.1.Controller 层（表现层、Web 层）</h4>
+<p>​	<strong>主要完成的操作：</strong></p>
+<p>​	（1）接收前端传递的参数</p>
+<p>​	（2）调用业务层</p>
+<p>​	（3）请求响应</p>
+<blockquote>
+<p>另外，还会有如下需求：</p>
+<p>数据的中转处理（进行格式化等操作）、响应类型和响应数据的格式及编码、数据压缩....</p>
+</blockquote>
+</div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">編集日</span><time title="修正日：2024-07-23 17:59:05" itemprop="dateModified" datetime="2024-07-23T17:59:05+08:00">2024-07-23</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>寄付</button><p>*~(￣▽￣)~[お茶]を一杯ください</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="SanYue WeChat 支払う"/><p>WeChat 支払う</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="SanYue Alipay"/><p>Alipay</p></div></div></div><div id="copyright"><ul><li class="author"><strong>著者：</strong>SanYue<i class="ic i-at"><em>@</em></i>只想摆烂，阿巴阿巴阿巴</li><li class="link"><strong>記事へのリンク：</strong><a href="https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/" title="">https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/</a></li><li class="license"><strong>著作権表示：</strong>このブログ内のすべての記事は、特別な記載がない限り <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> の下のライセンスで保護されています。</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2024/07/18/Cookie%20And%20Seeion/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;sanyueqi.cn-gd.ufileos.com&#x2F;blogImgs&#x2F;iTab-x82pmz.png" title="無題"><span class="type">前の記事</span><h3>無題</h3></a></div><div class="item right"></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="見出し"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-mvc"><span class="toc-number">1.</span> <span class="toc-text"> JSP-MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1jsp"><span class="toc-number">2.</span> <span class="toc-text"> 1.JSP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11html%E5%92%8Cservelet%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 1.1.HTML 和 Servelet 的弊端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12jsp%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.</span> <span class="toc-text"> 1.2.JSP 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13jsp%E8%AF%AD%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text"> 1.3.JSP 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#131%E8%BE%93%E5%87%BA%E8%84%9A%E6%9C%AC"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 1.3.1. 输出脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#132%E5%A3%B0%E6%98%8E"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 1.3.2. 声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#133%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 1.3.3. 插入代码片段</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.4.</span> <span class="toc-text"> 1.4.JSP 九大内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#141pagecontext%E5%9F%9F"><span class="toc-number">2.4.1.</span> <span class="toc-text"> 1.4.1PageContext 域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#142exception%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.4.2.</span> <span class="toc-text"> 1.4.2Exception 对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2el%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text"> 2.EL 表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E9%A3%9F%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text"> 2.1. 食用说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3jstl%E6%A0%87%E7%AD%BE%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text"> 3.JSTL 标签库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31%E7%9B%B8%E5%85%B3%E6%A0%87%E7%AD%BE"><span class="toc-number">4.1.</span> <span class="toc-text"> 3.1 相关标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84-and-mvc"><span class="toc-number">5.</span> <span class="toc-text"> 4. 三层架构 And MVC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="toc-number">5.1.</span> <span class="toc-text"> 4.1. 三层架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#411controller%E5%B1%82%E8%A1%A8%E7%8E%B0%E5%B1%82-web%E5%B1%82"><span class="toc-number">5.1.1.</span> <span class="toc-text"> 4.1.1.Controller 层（表现层、Web 层）</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="関連記事"></div><div class="overview panel" data-title="概要"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="SanYue" src="/assets/maomao.png"/><p class="name" itemprop="name">SanYue</p><div class="description" itemprop="description"></div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">5</span><span class="name">ポスト</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhiyuan-porg" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhiyuan-porg"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://music.163.com/#/user/home?id=4036796671" class="item music" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;4036796671"><i class="ic i-cloud-music"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>ホーム</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2024/07/18/Cookie%20And%20Seeion/" rel="next" title="次の記事"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>ランダムな記事</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/18/Cookie%20And%20Seeion/">無題</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/17/Http%E5%8D%8F%E8%AE%AE%E4%B8%8ERequest/">Http协议与Request</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/16/hello-world/">Hello World</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/17/Response%20And%20ServletContext/">Response And ServletContext</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/23/JSP-MVC/">無題</a></span></li></ul></div><div class="rpost pjax"><h2>最近のコメント</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">SanYue @ 拾光</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="単語の総数">9k 単語</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="読書の合計時間">9 分</span></div><div class="powered-by">Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+        path: `2024/07/23/JSP-MVC/`,
+        favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "検索…",
+        empty: "「 ${query} 」については何も見つかりませんでした",
+        stats: "${time} ms以内に ${hits} 件の結果が見つかりました"
+    },
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">記事の適時性の警告</span><br> {{publish}} 日前に公開され、 {{updated}} 日前に最終更新された記事です。 一部情報が変更されている可能性がありますので、ご了承ください。</p></div>`,
+    quiz: {
+        choice: `選択`,
+        multiple: `複数選択`,
+        true_false: `正誤`,
+        essay: `問答`,
+        gap_fill: `空欄`,
+        mistake: `間違った答え`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.9" type="module" fetchpriority="high" defer></script></body></html>

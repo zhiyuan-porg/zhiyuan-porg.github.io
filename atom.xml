@@ -8,7 +8,273 @@
     <author>
       <name>SanYue</name>
     </author>
-    <updated>2024-07-17T09:49:03.578Z</updated>
+    <updated>2024-07-23T02:01:03.249Z</updated>
+    <entry>
+        <id>https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/</id>
+        <title></title>
+        <link rel="alternate" href="https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/"/>
+        <content type="html">&lt;h2 id=&#34;jsp-mvc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jsp-mvc&#34;&gt;#&lt;/a&gt; JSP-MVC&lt;/h2&gt;
+&lt;h2 id=&#34;1jsp&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1jsp&#34;&gt;#&lt;/a&gt; 1.JSP&lt;/h2&gt;
+&lt;h3 id=&#34;11html和servelet的弊端&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11html和servelet的弊端&#34;&gt;#&lt;/a&gt; 1.1.HTML 和 Servelet 的弊端&lt;/h3&gt;
+&lt;p&gt;​	&lt;strong&gt;HTML：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	优点：方便页面的布局及美化&lt;/p&gt;
+&lt;p&gt;​	缺点：不能制作动态内容&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Servlet：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	优点：可以制作动态内容&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;缺点：不方便写CSS和JS代码
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;二者的优缺点刚好互补，两者综合起来就刚刚好是 JSP 的设计思想&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;12jsp简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12jsp简介&#34;&gt;#&lt;/a&gt; 1.2.JSP 简介&lt;/h3&gt;
+&lt;p&gt;​	以 Java 作为脚本语言，部署在网络服务器上，可以根据客户端的请求内容动态生成 HTML、XML 或其他格式文档的 Web 网页，然后返回给请求者。另外，JSP 的标签库 JSTL 提供了类似于 Java 中的 if、switch、for 等功能，开发者可以更方便地实现条件渲染和列表渲染等操作，而且也不受跨平台的限制。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;**Tips：**JSP 编译器可以将 JSP 文件编译成用 Java 代码写的 Servlet，然后 Servlet 再编译生成字节码文件。JSP 本质上就是一个 Servlet，属于动态技术。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;13jsp语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#13jsp语法&#34;&gt;#&lt;/a&gt; 1.3.JSP 语法&lt;/h3&gt;
+&lt;h4 id=&#34;131输出脚本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#131输出脚本&#34;&gt;#&lt;/a&gt; 1.3.1. 输出脚本&lt;/h4&gt;
+&lt;p&gt;​	&lt;strong&gt;作用：&lt;/strong&gt; 直接输出变量值或对表达式进行计算&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;&amp;lt;%= 变量名称或表达式%&amp;gt;  // 相当于Servlet的out.print()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;132声明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#132声明&#34;&gt;#&lt;/a&gt; 1.3.2. 声明&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;**作用：** 声明全局变量或方法
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;&amp;lt;%! 全局变量或方法 %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;133插入代码片段&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#133插入代码片段&#34;&gt;#&lt;/a&gt; 1.3.3. 插入代码片段&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;**作用：** 插入Java代码
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;&amp;lt;% Java代码 %&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;14jsp九大内置对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#14jsp九大内置对象&#34;&gt;#&lt;/a&gt; 1.4.JSP 九大内置对象&lt;/h3&gt;
+&lt;p&gt;​	&lt;strong&gt;PageContext:&lt;/strong&gt; 页面域&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Request：&lt;/strong&gt; HttpServletRequest (请求域)&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Session：&lt;/strong&gt; 会话域&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Application：&lt;/strong&gt; 上下文域&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以上为四大域对象， 从大到小依次为 Application &amp;gt; Session &amp;gt; Request &amp;gt; PageContext&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;相关的方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;作用域&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Java 代码&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EL 的写法&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;范围大小&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;页面域&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;% = pageContext.getAttribute (&amp;quot;键名&amp;quot;) %&amp;gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34; pageScope.键名=&#34;&#34;&gt;$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;请求域&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;% = request.getAttribute (&amp;quot;键名&amp;quot;) %&amp;gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34; requestScope.键名=&#34;&#34;&gt;$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;会话域&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;% = session.getAttribute (&amp;quot;键名&amp;quot;) %&amp;gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34; sessionScope.键名=&#34;&#34;&gt;$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;上下文域&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;% = application.getAttribute (&amp;quot;键名&amp;quot;) %&amp;gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34; applicationScope.键名=&#34;&#34;&gt;$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;自动查找&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;% = pageContext.findAttribute (&amp;quot;键名&amp;quot;) %&amp;gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	&lt;strong&gt;Response：&lt;/strong&gt; HttpServletResponse&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Out&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Config：&lt;/strong&gt; ServletConfig&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Page:&lt;/strong&gt; 当前页面的引用，就是 this&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Exception：&lt;/strong&gt; 封装了出现的异常， 只有在错误页面的中才会存在&lt;/p&gt;
+&lt;h4 id=&#34;141pagecontext域&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#141pagecontext域&#34;&gt;#&lt;/a&gt; 1.4.1PageContext 域&lt;/h4&gt;
+&lt;p&gt;​	PageContext 域是 servlet 中 4 个域对象中最后一个了，而且大小也是&lt;strong&gt;最小的&lt;/strong&gt;，只在当前页面下生效，且在不同的页面下不能实现页面共享（即使是一次请求）&lt;/p&gt;
+&lt;p&gt;​	有关的方法：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;方法&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;void setAttribute(String key, Object value)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;向页面域中添加键和值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Object getAttribute(String key)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;从页面域中得到值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;void removeAttribute(String key)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除页面域中键值对&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Object findAttribute(String key)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;自动从四个作用域中去查某个键，从小到大的范围来查找，如果找到就停止。如果没有找到，返回 null，&lt;strong&gt;该方法是页面域独有的&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;142exception对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#142exception对象&#34;&gt;#&lt;/a&gt; 1.4.2Exception 对象&lt;/h4&gt;
+&lt;p&gt;​	&lt;strong&gt;Exception 属于 JSP 的九大内置对象，但是只有错误页面才会生成该对象，普通的 JSP 页面不会存在 Exception 对象&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;​	&lt;strong&gt;warning：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	(1) 当前页面只有设置了 &lt;strong&gt;isErrorPage = true&lt;/strong&gt; 时才可以使用 exception 内置对象&lt;/p&gt;
+&lt;p&gt;​	(2) 常规页面只有八大内置对象，只有错误页面才有九大内置对象&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;2el表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2el表达式&#34;&gt;#&lt;/a&gt; 2.EL 表达式&lt;/h2&gt;
+&lt;p&gt;​	&lt;strong&gt;语法&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;$&amp;#123; 变量名或表达式&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;21食用说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#21食用说明&#34;&gt;#&lt;/a&gt; 2.1. 食用说明&lt;/h3&gt;
+&lt;p&gt;​	&lt;strong&gt;变量名：&lt;/strong&gt; 变量名即可以是诸如 x, y, z 这样的普通变量，也可以是 Object、List、Map、数组或者 JavaBean 等&lt;/p&gt;
+&lt;blockquote map[xiaoshabi]=&#34;&#34;&gt;
+&lt;p&gt;Tips: 键名中如果有特殊字符时，可以使用双引号或者单引号将其引起来。 e.g. $&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	&lt;strong&gt;表达式：&lt;/strong&gt; EL 表达式中的表达式可以包含常规的算术表达式（ + 、 - 、* 、/ 、%）、比较表达式（ == 、 != 、&amp;lt;、&amp;lt;=、&amp;gt; 、&amp;gt;=）、逻辑表达式（&amp;amp;&amp;amp; 、|| 、！）、三元运算以及判空表达式（${ empty 变量名}）&lt;/p&gt;
+&lt;h2 id=&#34;3jstl标签库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3jstl标签库&#34;&gt;#&lt;/a&gt; 3.JSTL 标签库&lt;/h2&gt;
+&lt;p&gt;​	使用时先导入 jar 包&lt;/p&gt;
+&lt;h3 id=&#34;31相关标签&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#31相关标签&#34;&gt;#&lt;/a&gt; 3.1 相关标签&lt;/h3&gt;
+&lt;p&gt;**&amp;lt;c:if test=&amp;quot;条件判断表达式&amp;quot;&amp;gt; ** 条件判断&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;lt;c:choose&amp;gt;&lt;/strong&gt; 多分支判断&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;类似于 switch，层级结构为：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;&amp;lt;c:choose&amp;gt;
+    &amp;lt;c:when test = &amp;quot;条件表达式&amp;quot;&amp;gt;
+   	 	xxxxxxxx
+    &amp;lt;/c:when&amp;gt;
+    //默认条件，相当于default
+    &amp;lt;c:otherwise&amp;gt;
+        xxxxxxx
+    &amp;lt;/c:otherwise&amp;gt;
+&amp;lt;/c:choose
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&amp;lt;c:forEach&amp;gt;&lt;/strong&gt; 循环渲染&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;类似于 for 语句，相关的参数有&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;属性名&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EL 支持&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;类型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;items&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;true&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;数组或集合&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;var&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;false&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;String&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;varStatus&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;false&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;String&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;begin&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;true&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;int&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;end&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;true&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;int&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;step&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;true&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;int&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;其中&lt;strong&gt; varStatus&lt;/strong&gt; 还有一些子属性（虽然也不是很常用）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;属性&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;数据类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;index&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;int&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;当前元素的索引号，从 0 开始&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;count&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;int&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;遍历到当前位置，一共遍历了多少个元素（默认从 1 开始）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;first&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;如果当前遍历的是第 1 个元素，则返回 true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;last&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;如果当前遍历的是最后 1 个元素，则返回 true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;4三层架构-and-mvc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4三层架构-and-mvc&#34;&gt;#&lt;/a&gt; 4. 三层架构 And MVC&lt;/h2&gt;
+&lt;h3 id=&#34;41三层架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#41三层架构&#34;&gt;#&lt;/a&gt; 4.1. 三层架构&lt;/h3&gt;
+&lt;p&gt;​	三层架构分为控制层（Controller 层）、业务层（Service 层）、持久层（Dao 层）&lt;/p&gt;
+&lt;h4 id=&#34;411controller层表现层-web层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#411controller层表现层-web层&#34;&gt;#&lt;/a&gt; 4.1.1.Controller 层（表现层、Web 层）&lt;/h4&gt;
+&lt;p&gt;​	&lt;strong&gt;主要完成的操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	（1）接收前端传递的参数&lt;/p&gt;
+&lt;p&gt;​	（2）调用业务层&lt;/p&gt;
+&lt;p&gt;​	（3）请求响应&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;另外，还会有如下需求：&lt;/p&gt;
+&lt;p&gt;数据的中转处理（进行格式化等操作）、响应类型和响应数据的格式及编码、数据压缩....&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <updated>2024-07-23T02:01:03.249Z</updated>
+    </entry>
+    <entry>
+        <id>https://zhiyuan-porg.github.io/2024/07/18/Cookie%20And%20Seeion/</id>
+        <title></title>
+        <link rel="alternate" href="https://zhiyuan-porg.github.io/2024/07/18/Cookie%20And%20Seeion/"/>
+        <content type="html">&lt;h2 id=&#34;1cookie&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1cookie&#34;&gt;#&lt;/a&gt; 1.Cookie&lt;/h2&gt;
+&lt;h3 id=&#34;11概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11概述&#34;&gt;#&lt;/a&gt; 1.1 概述&lt;/h3&gt;
+&lt;h4 id=&#34;111协议状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#111协议状态&#34;&gt;#&lt;/a&gt; 1.1.1 协议状态&lt;/h4&gt;
+&lt;p&gt;​	&lt;strong&gt;分类：&lt;/strong&gt; 有状态、无状态&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Tips:&lt;/strong&gt; 协议状态的划分是以是否有数据存储功能来划分的，但这并不一定是绝对的。例如 Http 协议是无状态协议，但通过一些特殊手段可以使其携带数据（加入 cookie、session 并向其中写入相应的数据，此时 Http 协议也具有了数据存储功能了）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;112cookie的传递流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#112cookie的传递流程&#34;&gt;#&lt;/a&gt; 1.1.2Cookie 的传递流程&lt;/h4&gt;
+&lt;h3 id=&#34;12cookie的操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12cookie的操作&#34;&gt;#&lt;/a&gt; 1.2Cookie 的操作&lt;/h3&gt;
+&lt;p&gt;​	cookie 的操作无非就是创建、删除、查看&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 创建&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 创建 Cookie 对象&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Cookie&lt;/span&gt; user &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Cookie&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;user&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;dashabi&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 设置 Cookie 的有效时间，单位为秒。如果没有设置过期时间则 Cookie 会随着浏览器的关闭而消失；当设置了过期时间时，则失效的时间以过期时间为准&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 如果要删除此条 Cookie，则可以  user.setMaxAge (0), 表示 Cookie 的存活时间为零&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;user&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setMaxAge&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;user&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setPath&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 在响应报文中添加 Cookie&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;response&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;addCookie&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;user&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+        <updated>2024-07-18T09:53:23.457Z</updated>
+    </entry>
     <entry>
         <id>https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/</id>
         <title>Response And ServletContext</title>
