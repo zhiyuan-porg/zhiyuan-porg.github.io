@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="只想摆烂，阿巴阿巴阿巴" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="只想摆烂，阿巴阿巴阿巴" type="application/atom+xml"><link rel="alternate" type="application/json" title="只想摆烂，阿巴阿巴阿巴" href="https://zhiyuan-porg.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.9"><link rel="modulepreload" href="/js/chunk-DQ433746.js"></link><link rel="modulepreload" href="/js/chunk-QAWHJ5B3.js"></link><link rel="modulepreload" href="/js/chunk-U6PLE2QJ.js"></link><link rel="modulepreload" href="/js/copy-tex-IW4I6ZZ7.js"></link><link rel="modulepreload" href="/js/index.esm-NJFSLYNY.js"></link><link rel="modulepreload" href="/js/post-KXZMYCAR.js"></link><link rel="modulepreload" href="/js/quicklink-BG4KCV56.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-g7g5rq.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-k7jmg6.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-ey92rr.png" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-72xgq3.png" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-v9djdl.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-k7rxj1.jpg" as="image" fetchpriority="high"><link rel="canonical" href="https://zhiyuan-porg.github.io/unfinished/MySQL%E4%BA%8B%E5%8A%A1%E4%BB%A5%E5%8F%8AMVCC"><title></title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline"></h1></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="Toggle navigation bar"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">拾光</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-g7g5rq.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-k7jmg6.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-ey92rr.png&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-72xgq3.png&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-v9djdl.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-k7rxj1.jpg&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="page wrap"><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-cn"><link itemprop="mainEntityOfPage" href="https://zhiyuan-porg.github.io/unfinished/MySQL%E4%BA%8B%E5%8A%A1%E4%BB%A5%E5%8F%8AMVCC.html"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/maomao.png"/><meta itemprop="name" content="SanYue"/><meta itemprop="description" content=", "/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="只想摆烂，阿巴阿巴阿巴"/></span><div class="body md" itemprop="articleBody"><h1 id="mysql事务以及mvcc"><a class="anchor" href="#mysql事务以及mvcc">#</a> MySQL 事务以及 MVCC</h1>
+<h2 id="1-事务基础"><a class="anchor" href="#1-事务基础">#</a> 1. 事务基础</h2>
+<h3 id="11-事务的四大特性"><a class="anchor" href="#11-事务的四大特性">#</a> 1.1. 事务的四大特性</h3>
+<p>原子性： 操作要么全部成功， 要么全部失败</p>
+<p>一致性： 事务执行前以及事务执行后， 数据库的总量一致</p>
+<p>隔离性： 事务之间不会相互影响</p>
+<p>持久性： 事务一旦成功， 对数据库的影响时永久的</p>
+<h3 id="112-事务的隔离级别及引发的问题"><a class="anchor" href="#112-事务的隔离级别及引发的问题">#</a> 1.1.2. 事务的隔离级别及引发的问题</h3>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>名字</th>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>读未提交</td>
+<td>read uncommitted</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>2</td>
+<td>读已提交</td>
+<td>read committed</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>3</td>
+<td>可重复读</td>
+<td>repeatable read</td>
+<td>否</td>
+<td>否</td>
+<td>是 / 否</td>
+</tr>
+<tr>
+<td>4</td>
+<td>串行化</td>
+<td>serializable</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注：</strong></p>
+<p><strong>相关名词解释：</strong></p>
+<p>​	**（1）脏读： ** 一个事务读到了其他事务未提交的数据</p>
+<p>​	**（2）不可重复读： ** 一个事务多次读取同一条记录，读取数据不一致。一般因为另一个事务更新了这条记录而引发的</p>
+<p>​	<strong>（3）幻读：</strong> 在一次事务中读取到的数据条数不一致</p>
+<p><strong>隔离级别说明：</strong></p>
+<p>​	事务的隔离级别由低到高依次为：读未提交， 读已提交， 可重复读，串行化。隔离级别越低，并发访问的性能就越高， 但随之而来的就是一系列并发数据一致的问题； 在高隔离级别的情况下，数据的一致性虽然可以极大地得到了保证，但这以牺牲性能为代价。而软件设计的艺术，就是如何取舍。</p>
+</blockquote>
+<h2 id="2mvcc并发版本控制"><a class="anchor" href="#2mvcc并发版本控制">#</a> 2.MVCC 并发版本控制</h2>
+<h3 id="21-mvcc与lbcc"><a class="anchor" href="#21-mvcc与lbcc">#</a> 2.1. MVCC 与 LBCC</h3>
+<p>** 锁的并发控制 Lock Based Concurrency Control（LBCC）：** 在读取的数据的时候加锁，锁定我们需要的数据，不允许其他事务对其修改</p>
+<p><strong>MVCC（Multi-Version Concurrency Control）：</strong> 多版本并发控制。并发访问（读或写）数据库时，对正在事务内处理的数据<strong>做多版本的管理</strong>。以达到用来避免写操作的堵塞，从而引发读操作的并发问题。MVCC 实现了对数据库的读写并发访问，MVCC 主要是为了提高数据库读写并发性能，用更好的方式去处理读 - 写冲突，做到即使有读写冲突时，也能做到不加锁，非阻塞并发读；提高了数据库并发读写能力。</p>
+<blockquote>
+<p><strong>两者的区别就在于读数据时是否加上共享锁</strong></p>
+</blockquote>
+<h3 id="22-mvcc实现原理"><a class="anchor" href="#22-mvcc实现原理">#</a> 2.2. MVCC 实现原理</h3>
+<p>在 InnoDB 中，所有表中都会有三个隐藏的列，分别为：DB_ROW_ID、DB_TRX_ID、DB_ROLL_PTR</p>
+<ul>
+<li>DB_TRX_ID：<strong>数据行版本号</strong>。当有新的数据修改或插入时的事务 ID 号，用于记录修改这条记录的事务 ID 和创建这条记录的事务 ID；（记录这条数据是哪个事务修改的，哪个事务创建的）</li>
+<li>DB_ROLL_PTR：<strong>回滚指针</strong>，也叫删除行版本号。指向 Undo Log 中这条记录的上一个版本，删除记录，记录当前事务 ID；（记录这条数据是哪个事务删除的）</li>
+<li>DB_ROW_ID：<strong>聚集索引</strong>。如果数据表没有主键，InnoDB 会创建一个 DB_ROW_ID 作为聚集索引</li>
+</ul>
+<p>MVCC 的目的就是实现数据库的并发读取，为了解决读写冲突，它的实现原理主要是依赖记录中的 3 个隐式字段，undo 日志 ，Read View（快照）来实现的。</p>
+<h3 id="23crud示例"><a class="anchor" href="#23crud示例">#</a> 2.3.CRUD 示例</h3>
+<h4 id="231-mvcc插入流程"><a class="anchor" href="#231-mvcc插入流程">#</a> 2.3.1. MVCC 插入流程</h4>
+</div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">Edited on</span><time title="Modified: 2024-09-18 12:01:40" itemprop="dateModified" datetime="2024-09-18T12:01:40+08:00">2024-09-18</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>Donate</button><p>Give me a cup of [coffee]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="SanYue WeChat Pay"/><p>WeChat Pay</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="SanYue Alipay"/><p>Alipay</p></div></div></div><div id="copyright"><ul><li class="author"><strong>Post author: </strong>SanYue<i class="ic i-at"><em>@</em></i>只想摆烂，阿巴阿巴阿巴</li><li class="link"><strong>Post link: </strong><a href="https://zhiyuan-porg.github.io/unfinished/MySQL%E4%BA%8B%E5%8A%A1%E4%BB%A5%E5%8F%8AMVCC.html" title="">https://zhiyuan-porg.github.io/unfinished/MySQL事务以及MVCC.html</a></li><li class="license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> unless stating additionally.</li></ul></div></footer></article></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="Contents"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E4%BA%8B%E5%8A%A1%E4%BB%A5%E5%8F%8Amvcc"><span class="toc-number">1.</span> <span class="toc-text"> MySQL 事务以及 MVCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BA%8B%E5%8A%A1%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 事务基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 1.1. 事务的四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#112-%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8A%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 1.1.2. 事务的隔离级别及引发的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2mvcc%E5%B9%B6%E5%8F%91%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text"> 2.MVCC 并发版本控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-mvcc%E4%B8%8Elbcc"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 2.1. MVCC 与 LBCC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-mvcc%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 2.2. MVCC 实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23crud%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 2.3.CRUD 示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#231-mvcc%E6%8F%92%E5%85%A5%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.3.1.</span> <span class="toc-text"> 2.3.1. MVCC 插入流程</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="Related"></div><div class="overview panel" data-title="Overview"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="SanYue" src="/assets/maomao.png"/><p class="name" itemprop="name">SanYue</p><div class="description" itemprop="description"></div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">2</span><span class="name">posts</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhiyuan-porg" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhiyuan-porg"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://music.163.com/#/user/home?id=4036796671" class="item music" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;4036796671"><i class="ic i-cloud-music"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>Home</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>Random Posts</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/23/JSP-MVC/">JSP-MVC</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/19/MySQL%E5%91%BD%E4%BB%A4%E3%80%81%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/">日志、分表及集群</a></span></li></ul></div><div class="rpost pjax"><h2>Recent Comments</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">SanYue @ 拾光</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="Symbols count total">9k words</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="Reading time total">8 mins.</span></div><div class="powered-by">Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: false,
+        path: `unfinished/MySQL事务以及MVCC`,
+        favicon: {
+        show: `(●´3｀●) Here we go again.`,
+        hide: `(´Д｀) It's a disaster!`
+    },
+    search: {
+        placeholder: "Search for Posts",
+        empty: "We didn't find any results for the search: ${query}",
+        stats: "${hits} results found in ${time} ms"
+    },
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">Article Timeliness Alert</span><br>This is an article published {{publish}} days ago and last updated {{updated}} days ago. Some information may have changed, so please be careful to screen it.</p></div>`,
+    quiz: {
+        choice: `Multiple Choice`,
+        multiple: `Multiple Answer`,
+        true_false: `True/False`,
+        essay: `Questions`,
+        gap_fill: `Gap Filling`,
+        mistake: `Wrong Answer`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.9" type="module" fetchpriority="high" defer></script></body></html>
