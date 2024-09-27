@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="遇到困难了怎么办，睡一觉就好了" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="遇到困难了怎么办，睡一觉就好了" type="application/atom+xml"><link rel="alternate" type="application/json" title="遇到困难了怎么办，睡一觉就好了" href="https://zhiyuan-porg.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.9"><link rel="modulepreload" href="/js/chunk-DQ433746.js"></link><link rel="modulepreload" href="/js/chunk-QAWHJ5B3.js"></link><link rel="modulepreload" href="/js/chunk-U6PLE2QJ.js"></link><link rel="modulepreload" href="/js/copy-tex-IW4I6ZZ7.js"></link><link rel="modulepreload" href="/js/index.esm-NJFSLYNY.js"></link><link rel="modulepreload" href="/js/post-KXZMYCAR.js"></link><link rel="modulepreload" href="/js/quicklink-BG4KCV56.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/181626-16073361869ce3.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-m9md18.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/a.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3geq2.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3g26l.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-72xgq3.png" as="image" fetchpriority="high"><link rel="canonical" href="https://zhiyuan-porg.github.io/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"><title>索引、存储引擎</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">索引、存储引擎</h1><div class="meta"><span class="item" title="Created: 2024-09-23 10:14:02"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">Posted on</span><time itemprop="dateCreated datePublished" datetime="2024-09-23T10:14:02+08:00">2024-09-23</time></span><span class="item" title="Symbols count in article"><span class="icon"><i class="ic i-pen"></i></span><span class="text">Symbols count in article</span><span>4.1k</span><span class="text">words</span></span><span class="item" title="Reading time"><span class="icon"><i class="ic i-clock"></i></span><span class="text">Reading time</span><span>4 mins.</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="Toggle navigation bar"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">忘年</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/181626-16073361869ce3.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-m9md18.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/a.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3geq2.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3g26l.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-72xgq3.png&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">Home</a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-cn"><link itemprop="mainEntityOfPage" href="https://zhiyuan-porg.github.io/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/maomao.png"/><meta itemprop="name" content="SanYue"/><meta itemprop="description" content=", "/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="遇到困难了怎么办，睡一觉就好了"/></span><div class="body md" itemprop="articleBody"><h2 id="1存储引擎"><a class="anchor" href="#1存储引擎">#</a> 1. 存储引擎</h2>
+<p>MySQL 的存储引擎是指数据库管理系统（DBMS）中用于存储和检索数据的具体实现方式，数据库管理系统使用存储引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能。</p>
+<p>存储引擎决定了 MySQL 底层组织数据的方式，不同的存储引擎之间大致有如下特点：</p>
+<blockquote>
+<p><strong>数据存储方式</strong>：存储引擎决定了数据的物理存储方式，影响数据的读取和写入效率。</p>
+<p><strong>事务支持</strong>：一些存储引擎支持 ACID（原子性、一致性、隔离性、持久性）事务，能够保证数据的一致性和完整性，而有些则不支持。</p>
+<p><strong>锁机制</strong>：不同的存储引擎有不同的锁定策略，影响并发操作的性能。例如，InnoDB 使用行级锁，而 MyISAM 使用表级锁。</p>
+<p><strong>索引方式</strong>：存储引擎提供不同类型的索引，影响查询性能和速度。</p>
+<p><strong>数据恢复</strong>：某些存储引擎提供数据恢复功能，能够在系统崩溃后恢复数据。</p>
+</blockquote>
+<h3 id="11常见的存储引擎"><a class="anchor" href="#11常见的存储引擎">#</a> 1.1. 常见的存储引擎</h3>
+<p>常见的存储引擎及一些特性如下：</p>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>InnoDB</th>
+<th>MyISAM</th>
+<th>MEMORY</th>
+<th>MERGE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储限制</td>
+<td>64TB</td>
+<td>有</td>
+<td>有</td>
+<td>没有</td>
+</tr>
+<tr>
+<td>事务安全</td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>锁机制</td>
+<td>行锁、表锁</td>
+<td>表锁</td>
+<td>表锁</td>
+<td>表锁</td>
+</tr>
+<tr>
+<td>B 树索引</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>哈希索引</td>
+<td></td>
+<td></td>
+<td>支持</td>
+<td></td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>支持 (5.6 版本之后)</td>
+<td>支持</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>集群索引</td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数据索引</td>
+<td>支持</td>
+<td></td>
+<td>支持</td>
+<td></td>
+</tr>
+<tr>
+<td>索引缓存</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<h4 id="111innodb存储引擎"><a class="anchor" href="#111innodb存储引擎">#</a> 1.1.1.InnoDB 存储引擎</h4>
+<p>InnoDB 是 MySQL5.5 版本后的默认存储引擎，其兼顾了高可靠性和高性能。高可靠性在于其拥有强大的事务管理功能使得在同一个事务内的操作在遇到异常、错误等问题时可以回滚，保证了数据的一致性。高性能则在于其支持 MVCC (多并发版本控制)，支持快照读（不加锁的读），而且支持行锁（操作索引列时）等操作大大提升了其性能。</p>
+<p><strong>特点：</strong></p>
+<p><strong>事务支持</strong>：支持 ACID 事务属性，可以保证事务的一致性、隔离性、持久性和原子性。</p>
+<p><strong>行级锁定</strong>：使用行级锁定机制，多个事务可以并行执行，提高了并发处理能力。</p>
+<p><strong>外键支持</strong>：支持外键约束，确保数据库中的数据完整性。</p>
+<p><strong>存储形式</strong>：.frm - 表定义文件，.ibd - 数据文件和索引文件（索引和数据是存放在一起的）。</p>
+<p><strong>MVCC（多版本并发控制）</strong>：InnoDB 实现了 MVCC 来支持读取未提交的数据，提高并发性能。</p>
+<p><strong>恢复机制</strong>：支持崩溃恢复机制，可以在数据库异常终止后自动恢复数据。</p>
+<p><strong>缓冲池</strong>：使用缓冲池来缓存表的数据和索引，减少了磁盘 I/O 操作，提高了性能。</p>
+<p><strong>自适应哈希索引</strong>：InnoDB 可以自动维护哈希索引，并根据查询的频率来创建哈希索引，提高某些查询的性能。</p>
+<p><strong>支持分区表</strong>：支持表分区，可以在大型表上实现更好的性能和管理。</p>
+<p><strong>全文索引</strong>：支持全文索引，可以在文本数据上进行快速的全文搜索。</p>
+<h4 id="112myisam存储引擎"><a class="anchor" href="#112myisam存储引擎">#</a> 1.1.2.MyISAM 存储引擎</h4>
+<p>在 5.1 版本之前，MyISAM 存储引擎是 MySQL 的默认存储引擎，以轻巧、结构简单和占用空间少而被运用在读操作较多的场景。其中，MyISAM 引擎只支持表锁且不支持事务也没有 MVCC 等，因此虽然在非并发的的情况的下 MyISAM 是优于 InnoDB 的，但在高并发的场景下，InnoDB 的性能是远优于 MyISAM 的。</p>
+<p>** 特点： **</p>
+<p><strong>非事务型</strong>：不支持事务处理，因此不具备事务的 ACID 属性（原子性、一致性、隔离性、持久性）。</p>
+<p><strong>表级锁定</strong>：使用表级锁而不是行级锁，这意味着在写入（INSERT、UPDATE、DELETE）时会锁定整个表，影响读写并发性能。</p>
+<p><strong>读取速度快</strong>：MyISAM 表结构简单，读取速度快，尤其适合进行大量的 SELECT 查询。</p>
+<p><strong>空间和性能</strong>：MyISAM 对磁盘空间的利用率高，可以压缩数据以减少磁盘空间的占用，同时其查询性能也非常高效。</p>
+<p><strong>压缩功能</strong>：MyISAM 支持静态表（static tables），这类表可以在创建时被压缩，从而减少存储空间的需求。</p>
+<blockquote>
+<p>MySIAM 表支持三种不同存储格式：</p>
+<p><strong>静态表</strong>：静态表是默认的存储格式，静态表中的字段都是非变长的字段（char），优点是：存储非常迅速，出现故障容易恢复；缺点是：占用的空间通常比动态表多。</p>
+<p><strong>动态表</strong>：动态表的字段是变长的（varchar），优点是：占用的空间相对较少，但是频繁地更新删除记录会产生碎片，需要定期改善性能，并且出现故障的时候恢复相对比较困难。</p>
+<p><strong>压缩表</strong>：MyISAM 可以使用 myisampack 工具压缩表数据，压缩表占用磁盘空间小，每个记录是被单独压缩的，所以只有非常小的访问开支。</p>
+</blockquote>
+<p><strong>存储形式</strong>：.frm - 表定义文件，.myd - 数据文件，.myi - 索引文件（索引和数据是分开存放的）。</p>
+<p><strong>容易管理</strong>：MyISAM 的数据文件和索引文件都是独立的，使得在发生问题时可以单独对数据文件或索引文件进行修复，而不需要影响整个数据库。</p>
+<p><strong>全文索引支持</strong>：提供全文搜索功能，非常适合需要执行全文检索的应用。</p>
+<blockquote>
+<p><strong>InnoDB 与 MyISAM 对比</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center">InooDB</th>
+<th style="text-align:center">MyISAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">存储文件</td>
+<td style="text-align:center">.frm (表定义文件)，ibd (数据文件和索引文件)</td>
+<td style="text-align:center">.frm (表定义文件)、.myi (索引文件)、.myd (数据文件)</td>
+</tr>
+<tr>
+<td style="text-align:left">锁</td>
+<td style="text-align:center">表锁和行锁（在操作索引列时）</td>
+<td style="text-align:center">表锁</td>
+</tr>
+<tr>
+<td style="text-align:left">事务</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:left">CRUD 场景</td>
+<td style="text-align:center">读、写</td>
+<td style="text-align:center">读较多的场景</td>
+</tr>
+<tr>
+<td style="text-align:left">count</td>
+<td style="text-align:center">遍历表</td>
+<td style="text-align:center">内置的 count 计数器（无查询条件时）</td>
+</tr>
+<tr>
+<td style="text-align:left">索引结构</td>
+<td style="text-align:center">B+Tree</td>
+<td style="text-align:center">B+Tree</td>
+</tr>
+<tr>
+<td style="text-align:left">应用场景</td>
+<td style="text-align:center">事务、并发读写</td>
+<td style="text-align:center">关注于读取性能</td>
+</tr>
+<tr>
+<td style="text-align:left">外键</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="113-merge存储引擎"><a class="anchor" href="#113-merge存储引擎">#</a> 1.1.3. Merge 存储引擎</h4>
+<p>Merge 用于将一系列等同的 MyISAM 表以逻辑方式组合在一起，并作为一个对象・引用它。这些 MyISAM 表必须结构完全相同。Merge 表本身没有数据，对 Merge 类型的表进行查询、更新、删除的操作，就是对内部的 MyISAM 表进行的，Merge 表的优点在于可以突破对单个 MyISAM 表大小的限制，通过将不同的表分布在多个磁盘上，可以有效的改善 Merge 表的访问效率。</p>
+<p>Merge 数据表的定义里可以包括一个 INSERT_METHOD 选项，这个选项的可取值是 NO、FIRST、LAST，他们的含义依次是禁止插入、插入到第一个子表、插入到最后一个子表。</p>
+<h4 id="114-memory存储引擎"><a class="anchor" href="#114-memory存储引擎">#</a> 1.1.4. Memory 存储引擎</h4>
+<p>Memory 存储引擎将表的数据存放在内存中。每个 Memory 表实际对应一个磁盘文件，格式是.frm ，该文件中只存储表的结构，而其数据文件，都是存储在内存中，这样有利于数据的快速处理，提高整个表的效率。Memory 类型的表访问非常地快，因为他的数据是存放在内存中的，并且默认使用 HASH 索引 ，但是服务一旦关闭，表中的数据就会丢失。它对表的大小有要求，不能建立太大的表。所以，这类数据库只使用在相对较小的数据库表。</p>
+<h2 id="2索引"><a class="anchor" href="#2索引">#</a> 2. 索引</h2>
+</div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">Edited on</span><time title="Modified: 2024-09-23 11:13:05" itemprop="dateModified" datetime="2024-09-23T11:13:05+08:00">2024-09-23</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>Donate</button><p>Give me a cup of [coffee]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="SanYue WeChat Pay"/><p>WeChat Pay</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="SanYue Alipay"/><p>Alipay</p></div></div></div><div id="copyright"><ul><li class="author"><strong>Post author: </strong>SanYue<i class="ic i-at"><em>@</em></i>遇到困难了怎么办，睡一觉就好了</li><li class="link"><strong>Post link: </strong><a href="https://zhiyuan-porg.github.io/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/" title="索引、存储引擎">https://zhiyuan-porg.github.io/2024/09/23/索引、存储引擎/</a></li><li class="license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> unless stating additionally.</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2024/09/19/%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;sanyueqi.cn-gd.ufileos.com&#x2F;blogImgs&#x2F;iTab-m9ogrk.jpg" title="日志、分表及集群"><span class="type">Previous Post</span><h3>日志、分表及集群</h3></a></div><div class="item right"><a href="/2024/09/24/Undo%20Log%E6%97%A5%E5%BF%97/" rel="next" itemprop="url" data-background-image="https:&#x2F;&#x2F;sanyueqi.cn-gd.ufileos.com&#x2F;blogImgs&#x2F;iTab-pkxqpm.jpg" title="Untitled"><span class="type">Next Post</span><h3>Untitled</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="Contents"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text"> 1. 存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.1.</span> <span class="toc-text"> 1.1. 常见的存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#111innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 1.1.1.InnoDB 存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#112myisam%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 1.1.2.MyISAM 存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#113-merge%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 1.1.3. Merge 存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#114-memory%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 1.1.4. Memory 存储引擎</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E7%B4%A2%E5%BC%95"><span class="toc-number">2.</span> <span class="toc-text"> 2. 索引</span></a></li></ol></div><div class="related panel pjax" data-title="Related"></div><div class="overview panel" data-title="Overview"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="SanYue" src="/assets/maomao.png"/><p class="name" itemprop="name">SanYue</p><div class="description" itemprop="description"></div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">4</span><span class="name">posts</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhiyuan-porg" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhiyuan-porg"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>Home</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2024/09/24/Undo%20Log%E6%97%A5%E5%BF%97/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2024/09/19/%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>Random Posts</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/19/%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/">日志、分表及集群</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/24/Undo%20Log%E6%97%A5%E5%BF%97/">Untitled</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/23/JSP-MVC/">JSP-MVC</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">索引、存储引擎</a></span></li></ul></div><div class="rpost pjax"><h2>Recent Comments</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">SanYue @ 忘年</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="Symbols count total">14k words</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="Reading time total">13 mins.</span></div><div class="powered-by">Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+        path: `2024/09/23/索引、存储引擎/`,
+        favicon: {
+        show: `(●´3｀●) Here we go again.`,
+        hide: `(´Д｀) It's a disaster!`
+    },
+    search: {
+        placeholder: "Search for Posts",
+        empty: "We didn't find any results for the search: ${query}",
+        stats: "${hits} results found in ${time} ms"
+    },
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">Article Timeliness Alert</span><br>This is an article published {{publish}} days ago and last updated {{updated}} days ago. Some information may have changed, so please be careful to screen it.</p></div>`,
+    quiz: {
+        choice: `Multiple Choice`,
+        multiple: `Multiple Answer`,
+        true_false: `True/False`,
+        essay: `Questions`,
+        gap_fill: `Gap Filling`,
+        mistake: `Wrong Answer`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.9" type="module" fetchpriority="high" defer></script></body></html>

@@ -2945,17 +2945,17 @@ use.stop-animation {
   top: -10%;
   left: -10%;
 }
-.social .item.github::before {
+.social .item.g::before {
+  background-color: thu;
+}
+.social .item.g i {
+  color: thu;
+}
+.social .item.h::before {
   background-color: #191717;
 }
-.social .item.github i {
+.social .item.h i {
   color: #191717;
-}
-.social .item.music::before {
-  background-color: #e60026;
-}
-.social .item.music i {
-  color: #e60026;
 }
 .social .item:focus i,
 .social .item:hover i {

@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="遇到困难了怎么办，睡一觉就好了" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="遇到困难了怎么办，睡一觉就好了" type="application/atom+xml"><link rel="alternate" type="application/json" title="遇到困难了怎么办，睡一觉就好了" href="https://zhiyuan-porg.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.9"><link rel="modulepreload" href="/js/chunk-DQ433746.js"></link><link rel="modulepreload" href="/js/chunk-QAWHJ5B3.js"></link><link rel="modulepreload" href="/js/chunk-U6PLE2QJ.js"></link><link rel="modulepreload" href="/js/copy-tex-IW4I6ZZ7.js"></link><link rel="modulepreload" href="/js/index.esm-NJFSLYNY.js"></link><link rel="modulepreload" href="/js/post-KXZMYCAR.js"></link><link rel="modulepreload" href="/js/quicklink-BG4KCV56.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3pzly.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-k7djdq.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-o37kw9.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-pkxqpm.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-m9ogrk.jpg" as="image" fetchpriority="high"><link rel="preload" href="https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-ey92rr.png" as="image" fetchpriority="high"><link rel="canonical" href="https://zhiyuan-porg.github.io/unfinished/Response%20And%20ServletContext"><title>Response And ServletContext</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">Response And ServletContext</h1></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="Toggle navigation bar"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">忘年</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-l3pzly.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-k7djdq.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-o37kw9.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-pkxqpm.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/iTab-m9ogrk.jpg&quot;);"></li><li class="item" style="background-image: url(&quot;https://sanyueqi.cn-gd.ufileos.com/blogImgs/wallhaven-ey92rr.png&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="page wrap"><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-cn"><link itemprop="mainEntityOfPage" href="https://zhiyuan-porg.github.io/unfinished/Response%20And%20ServletContext.html"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/maomao.png"/><meta itemprop="name" content="SanYue"/><meta itemprop="description" content=", "/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="遇到困难了怎么办，睡一觉就好了"/></span><div class="body md" itemprop="articleBody"><h2 id="1http响应概述"><a class="anchor" href="#1http响应概述">#</a> 1.Http 响应概述</h2>
+<h3 id="11http响应信息的组成"><a class="anchor" href="#11http响应信息的组成">#</a> 1.1HTTP 响应信息的组成</h3>
+<p>响应行、响应头、响应体</p>
+<h3 id="12响应行"><a class="anchor" href="#12响应行">#</a> 1.2 响应行</h3>
+<p>由协议及版本、响应状态码、状态信息</p>
+<blockquote>
+<p>e.g. HTTP/1.1    200    ok</p>
+</blockquote>
+<h4 id="121响应状态码分为五类"><a class="anchor" href="#121响应状态码分为五类">#</a> <strong>1.2.1 响应状态码分为五类</strong></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1xx</td>
+<td style="text-align:center">指示信息；表示请求已接收，继续处理</td>
+</tr>
+<tr>
+<td style="text-align:center">2xx</td>
+<td style="text-align:center">成功；</td>
+</tr>
+<tr>
+<td style="text-align:center">3xx</td>
+<td style="text-align:center">重定向</td>
+</tr>
+<tr>
+<td style="text-align:center">4xx</td>
+<td style="text-align:center">客户端错误；语法错误 or 无法实现</td>
+</tr>
+<tr>
+<td style="text-align:center">5xx</td>
+<td style="text-align:center">服务端错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="122响应头"><a class="anchor" href="#122响应头">#</a> <strong>1.2.2 响应头</strong></h4>
+<p>由各种键值组成，键固定值可变。常见的响应头如下：</p>
+<table>
+<thead>
+<tr>
+<th>响应头信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location</td>
+<td>重定向要跳转的地址</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>设置数据类型及字符集</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>设置稍后跳转的延迟时间及页面路径</td>
+</tr>
+<tr>
+<td>Content-Disposition</td>
+<td>设置内容的处理方式</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>常见的状态码</strong></p>
+<p>200：正确得到响应数据</p>
+<p>302：页面重定向</p>
+<p>304：使用了本地缓存</p>
+<p>400：请求参数错误</p>
+<p>404：资源不存在</p>
+<p>405：请求的方法错误</p>
+<p>415： 无法处理的媒体格式</p>
+<p>500： 服务器内部错误</p>
+</blockquote>
+<h4 id="123-响应体"><a class="anchor" href="#123-响应体">#</a> <strong>1.2.3 响应体</strong></h4>
+<p>封装服务器要返回的数据，而且可以是任意数据</p>
+<blockquote>
+<p>Get 请求虽然没有请求体，但它有响应体</p>
+</blockquote>
+<h2 id="2httpservletrequest对象"><a class="anchor" href="#2httpservletrequest对象">#</a> 2.HttpServletRequest 对象</h2>
+<h3 id="21简介"><a class="anchor" href="#21简介">#</a> 2.1 简介</h3>
+<p>​	HttpServletReruest 是 ServletRequest 接口的子接口，代表着一个请求对象，用来封装所有从浏览器发送给服务器的数据</p>
+<h3 id="22请求行相关的api"><a class="anchor" href="#22请求行相关的api">#</a> 2.2 请求行相关的 API</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">String</span> <span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token class-name">String</span> <span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token class-name">StringBuffer</span> <span class="token function">getRequestURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token class-name">String</span> <span class="token function">getProtocol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 得到请求行中协议的版本</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token class-name">String</span> <span class="token function">getContextPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 得到项目的访问地址</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token class-name">String</span> <span class="token function">getRemoteAddr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 得到客户端的 IP 地址</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token class-name">String</span> <span class="token function">getServletPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 得到 servlet 的访问地址</span></pre></td></tr></table></figure><h3 id="23请求头相关的api"><a class="anchor" href="#23请求头相关的api">#</a> 2.3 请求头相关的 API</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">String</span> <span class="token function">getHeader</span><span class="token punctuation">(</span><span class="token class-name">String</span> headName<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 通过键取值</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token class-name">Enumeration</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">getHeaderNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 请求头中键名字</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">boolean</span> <span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 是否还有下一个元素</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token class-name">E</span> <span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 得到某个元素，并且指针后移一位</span></pre></td></tr></table></figure><blockquote>
+<p>hasMoreElements () 可以与 nextElement () 搭配使用，例</p>
+</blockquote>
+<blockquote>
+<pre><code class="language-java"></code></pre>
+</blockquote>
+<p>Enumeration&lt;String&gt; headerNames = request.getHeaderNames();</p>
+<blockquote>
+<p>// 此时对 headerNames 进行遍历，<br />
+String name;<br />
+String value;<br />
+while(headerNames.hasMoreElements()){<br />
+// 获取到请求头中的所有键值对<br />
+ // 指针直接指向下一行，可以理解为指针在初始时指向的是 - 1，判断下一位不为空时才指针才会下移取值<br />
+ name = headerNames.nextElements ();<br />
+value = request.getHeader(name);<br />
+}<br />
+```</p>
+</blockquote>
+<h3 id="24请求参数的相关api"><a class="anchor" href="#24请求参数的相关api">#</a> 2.4 请求参数的相关 API</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">String</span> <span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 通过参数名称取值</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">getParameterValues</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 得到所有同名参数值</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token class-name">Enumeration</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">getParameterNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 得到所有参数的键名</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token class-name">Map</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> <span class="token function">getParameterMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 得到所有参数的键值对</span></pre></td></tr></table></figure><h2 id="3请求相关的方法"><a class="anchor" href="#3请求相关的方法">#</a> 3. 请求相关的方法</h2>
+<h3 id="31作用域的介绍"><a class="anchor" href="#31作用域的介绍">#</a> 3.1 作用域的介绍</h3>
+<p>​	作用域是不同的 Servlet 之间的数据共享区，存放于数据库的内存中。</p>
+<p>​	主要分为四个：页面域（Page）、请求域（Request）、会话域（Session）、上下文域（ServletContext）</p>
+<blockquote>
+<p>数据只能在同一个请求中共享，请求结束或其它的请求不能访问其中的数据。</p>
+</blockquote>
+<h3 id="32相关的api"><a class="anchor" href="#32相关的api">#</a> 3.2 相关的 API</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token class-name">Object</span> <span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">void</span> <span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="33请求分发的api"><a class="anchor" href="#33请求分发的api">#</a> 3.3 请求分发的 API</h3>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 将请求跳转到分发器指定的地方</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">forward</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> <span class="token class-name">Response</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 收集分发器指定的请求的响应结果</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">include</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> <span class="token class-name">Response</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="4转发-and-重定向"><a class="anchor" href="#4转发-and-重定向">#</a> 4. 转发 And 重定向</h2>
+<h3 id="41转发"><a class="anchor" href="#41转发">#</a> 4.1 转发</h3>
+<p>​	由<strong>服务器</strong>进行的页面跳转</p>
+<h4 id="411相关的api"><a class="anchor" href="#411相关的api">#</a> <strong>4.1.1 相关的 API</strong></h4>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre>request<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span><span class="token constant">URI</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="412特点"><a class="anchor" href="#412特点">#</a> <strong>4.1.2 特点</strong></h4>
+<ul>
+<li>服务器的内部行为，URL 始终不变</li>
+<li>客户端只发送了一次请求</li>
+<li>请求域的数据不会失效</li>
+<li>URI 不需要添上项目名</li>
+</ul>
+<h3 id="42重定向"><a class="anchor" href="#42重定向">#</a> 4.2 重定向</h3>
+<p>​	<strong>客户端</strong>根据服务器反馈的信息<strong>再次请求</strong>服务器</p>
+<h4 id="421相关的api"><a class="anchor" href="#421相关的api">#</a> <strong>4.2.1 相关的 API</strong></h4>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre>response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="422特点"><a class="anchor" href="#422特点">#</a> <strong>4.2.2 特点</strong></h4>
+<ul>
+<li>由于是再次请求，所以地址栏会发生变化</li>
+<li>客户端两次请求了数据</li>
+<li>请求域中数据丢失</li>
+<li>URL 是完整的项目名，当然也可以是外部链接</li>
+</ul>
+<blockquote>
+<p>[!TIP]</p>
+<p>如果不想丢失数据域中的信息的话，可以用转发哦</p>
+</blockquote>
+</div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">Edited on</span><time title="Modified: 2024-07-26 09:38:42" itemprop="dateModified" datetime="2024-07-26T09:38:42+08:00">2024-07-26</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>Donate</button><p>Give me a cup of [coffee]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="SanYue WeChat Pay"/><p>WeChat Pay</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="SanYue Alipay"/><p>Alipay</p></div></div></div><div id="copyright"><ul><li class="author"><strong>Post author: </strong>SanYue<i class="ic i-at"><em>@</em></i>遇到困难了怎么办，睡一觉就好了</li><li class="link"><strong>Post link: </strong><a href="https://zhiyuan-porg.github.io/unfinished/Response%20And%20ServletContext.html" title="Response And ServletContext">https://zhiyuan-porg.github.io/unfinished/Response And ServletContext.html</a></li><li class="license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> unless stating additionally.</li></ul></div></footer></article></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="Contents"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1http%E5%93%8D%E5%BA%94%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 1.Http 响应概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11http%E5%93%8D%E5%BA%94%E4%BF%A1%E6%81%AF%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.1.</span> <span class="toc-text"> 1.1HTTP 响应信息的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E5%93%8D%E5%BA%94%E8%A1%8C"><span class="toc-number">1.2.</span> <span class="toc-text"> 1.2 响应行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#121%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E4%B8%BA%E4%BA%94%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 1.2.1 响应状态码分为五类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#122%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 1.2.2 响应头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#123-%E5%93%8D%E5%BA%94%E4%BD%93"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 1.2.3 响应体</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2httpservletrequest%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text"> 2.HttpServletRequest 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text"> 2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22%E8%AF%B7%E6%B1%82%E8%A1%8C%E7%9B%B8%E5%85%B3%E7%9A%84api"><span class="toc-number">2.2.</span> <span class="toc-text"> 2.2 请求行相关的 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%9B%B8%E5%85%B3%E7%9A%84api"><span class="toc-number">2.3.</span> <span class="toc-text"> 2.3 请求头相关的 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E7%9B%B8%E5%85%B3api"><span class="toc-number">2.4.</span> <span class="toc-text"> 2.4 请求参数的相关 API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E8%AF%B7%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> 3. 请求相关的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text"> 3.1 作用域的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E7%9B%B8%E5%85%B3%E7%9A%84api"><span class="toc-number">3.2.</span> <span class="toc-text"> 3.2 相关的 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E8%AF%B7%E6%B1%82%E5%88%86%E5%8F%91%E7%9A%84api"><span class="toc-number">3.3.</span> <span class="toc-text"> 3.3 请求分发的 API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E8%BD%AC%E5%8F%91-and-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">4.</span> <span class="toc-text"> 4. 转发 And 重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41%E8%BD%AC%E5%8F%91"><span class="toc-number">4.1.</span> <span class="toc-text"> 4.1 转发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#411%E7%9B%B8%E5%85%B3%E7%9A%84api"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 4.1.1 相关的 API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#412%E7%89%B9%E7%82%B9"><span class="toc-number">4.1.2.</span> <span class="toc-text"> 4.1.2 特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">4.2.</span> <span class="toc-text"> 4.2 重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#421%E7%9B%B8%E5%85%B3%E7%9A%84api"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 4.2.1 相关的 API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#422%E7%89%B9%E7%82%B9"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 4.2.2 特点</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="Related"></div><div class="overview panel" data-title="Overview"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="SanYue" src="/assets/maomao.png"/><p class="name" itemprop="name">SanYue</p><div class="description" itemprop="description"></div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">4</span><span class="name">posts</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhiyuan-porg" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhiyuan-porg"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>Home</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>Random Posts</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">索引、存储引擎</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/19/%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/">日志、分表及集群</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/07/23/JSP-MVC/">JSP-MVC</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/09/24/Undo%20Log%E6%97%A5%E5%BF%97/">Untitled</a></span></li></ul></div><div class="rpost pjax"><h2>Recent Comments</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">SanYue @ 忘年</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="Symbols count total">14k words</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="Reading time total">13 mins.</span></div><div class="powered-by">Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: false,
+        path: `unfinished/Response And ServletContext`,
+        favicon: {
+        show: `(●´3｀●) Here we go again.`,
+        hide: `(´Д｀) It's a disaster!`
+    },
+    search: {
+        placeholder: "Search for Posts",
+        empty: "We didn't find any results for the search: ${query}",
+        stats: "${hits} results found in ${time} ms"
+    },
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">Article Timeliness Alert</span><br>This is an article published {{publish}} days ago and last updated {{updated}} days ago. Some information may have changed, so please be careful to screen it.</p></div>`,
+    quiz: {
+        choice: `Multiple Choice`,
+        multiple: `Multiple Answer`,
+        true_false: `True/False`,
+        essay: `Questions`,
+        gap_fill: `Gap Filling`,
+        mistake: `Wrong Answer`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.9" type="module" fetchpriority="high" defer></script></body></html>
