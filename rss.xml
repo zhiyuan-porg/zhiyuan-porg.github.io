@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>遇到困难了怎么办，睡一觉就好了</title>
+        <title>Hexo</title>
         <subtitle></subtitle>
         <icon>https://zhiyuan-porg.github.io/assets/favicon.ico</icon>
         <link>https://zhiyuan-porg.github.io</link>
@@ -10,16 +10,28 @@
         </author>
         <description></description>
         <language>zh-cn</language>
-        <pubDate>Tue, 24 Sep 2024 18:59:01 +0800</pubDate>
-        <lastBuildDate>Tue, 24 Sep 2024 18:59:01 +0800</lastBuildDate>
+        <pubDate>Mon, 30 Sep 2024 11:48:25 +0800</pubDate>
+        <lastBuildDate>Mon, 30 Sep 2024 11:48:25 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/09/30/Spring/</guid>
+            <title>Spring</title>
+            <link>https://zhiyuan-porg.github.io/2024/09/30/Spring/</link>
+            <category term="后端开发" scheme="https://zhiyuan-porg.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" />
+            <category term="框架相关" scheme="https://zhiyuan-porg.github.io/tags/%E6%A1%86%E6%9E%B6%E7%9B%B8%E5%85%B3/" />
+            <category term="Spring相关" scheme="https://zhiyuan-porg.github.io/tags/Spring%E7%9B%B8%E5%85%B3/" />
+            <pubDate>Mon, 30 Sep 2024 11:48:25 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;1概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1概述&#34;&gt;#&lt;/a&gt; 1. 概述&lt;/h2&gt;
+&lt;p&gt;​	Spring 是一个 JavaEE 轻量级的一站式开发框架。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/09/24/Undo%20Log%E6%97%A5%E5%BF%97/</guid>
-            <title></title>
+            <title>浅谈Undo Log日志</title>
             <link>https://zhiyuan-porg.github.io/2024/09/24/Undo%20Log%E6%97%A5%E5%BF%97/</link>
+            <category term="后端开发" scheme="https://zhiyuan-porg.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" />
+            <category term="MySQL" scheme="https://zhiyuan-porg.github.io/tags/MySQL/" />
             <pubDate>Tue, 24 Sep 2024 18:59:01 +0800</pubDate>
-            <description><![CDATA[ &lt;hr /&gt;
-&lt;h2 id=&#34;title浅谈undo-log日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#title浅谈undo-log日志&#34;&gt;#&lt;/a&gt; title: 浅谈 Undo Log 日志&lt;/h2&gt;
-&lt;h1 id=&#34;谈谈undo-log日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#谈谈undo-log日志&#34;&gt;#&lt;/a&gt; 谈谈 Undo Log 日志？&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;谈谈undo-log日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#谈谈undo-log日志&#34;&gt;#&lt;/a&gt; 谈谈 Undo Log 日志？&lt;/h1&gt;
 &lt;p&gt;​	在 MySQL 的所有引擎中，只有 InnoDB 引擎支持事务，而 undo log 正是 InnoDB 存储引擎用于实现事务原子性和一致性的关键机制。其中，原子性是指在一个事务内的对数据库的任何更改操作要么全部成功，要么在执行过程中发生错误或者异常时视为全部失败，将数据状态还原。而一致性是指事务执行前后，数据库中数据应保持相同的状态。以转账操作为例，用户 A 向用户 B 转账，正常的逻辑是 A 减少金额等于 B 增加金额，但如果在 A 减少金额成功后出现了异常终止了接下来的增加 B 用户余额的操作，此时如果不撤销对 A 减少金额的操作将会导致此事务执行前后 AB 用户余额总量之和不一致。而要对事务中的行为的进行撤销（回滚），则恰恰要以 undo log 日志中的内容为依据。&lt;/p&gt;
 &lt;p&gt;​	undo log 是一种逻辑日志，它可以记录事务对数据库所做的更改的相反操作，主要包含了执行变更操作的事务 ID、回滚指针、数据行的旧值、聚集索引、删除标记等信息。其中操作类型分为两种: insert 类型和 update 类型。&lt;/p&gt;
 &lt;p&gt;​	对于 insert 类型的操作，它的相反操作是 delete 操作。进行 insert 操作时，将本次事务的 id 以及插入的数据写入 undo log 中，且回退的版本号为 null。当事务回滚时，事务中的 insert 操作将视为全部失败，然后将已插入的数据执行 delete 逻辑删除操作。&lt;/p&gt;
@@ -32,6 +44,8 @@
             <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</guid>
             <title>索引、存储引擎</title>
             <link>https://zhiyuan-porg.github.io/2024/09/23/%E7%B4%A2%E5%BC%95%E3%80%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</link>
+            <category term="后端开发" scheme="https://zhiyuan-porg.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" />
+            <category term="MySQL" scheme="https://zhiyuan-porg.github.io/tags/MySQL/" />
             <pubDate>Mon, 23 Sep 2024 10:14:02 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;1存储引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1存储引擎&#34;&gt;#&lt;/a&gt; 1. 存储引擎&lt;/h2&gt;
 &lt;p&gt;MySQL 的存储引擎是指数据库管理系统（DBMS）中用于存储和检索数据的具体实现方式，数据库管理系统使用存储引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能。&lt;/p&gt;
@@ -217,6 +231,8 @@
             <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/09/19/%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/</guid>
             <title>日志、分表及集群</title>
             <link>https://zhiyuan-porg.github.io/2024/09/19/%E6%97%A5%E5%BF%97%E5%8F%8A%E9%9B%86%E7%BE%A4/</link>
+            <category term="后端开发" scheme="https://zhiyuan-porg.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" />
+            <category term="MySQL" scheme="https://zhiyuan-porg.github.io/tags/MySQL/" />
             <pubDate>Thu, 19 Sep 2024 18:27:45 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;1mysql日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1mysql日志&#34;&gt;#&lt;/a&gt; 1.MySQL 日志&lt;/h2&gt;
 &lt;h3 id=&#34;11二进制日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11二进制日志&#34;&gt;#&lt;/a&gt; 1.1. 二进制日志&lt;/h3&gt;
@@ -316,6 +332,8 @@
             <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/</guid>
             <title>JSP-MVC</title>
             <link>https://zhiyuan-porg.github.io/2024/07/23/JSP-MVC/</link>
+            <category term="后端开发" scheme="https://zhiyuan-porg.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" />
+            <category term="JavaWeb" scheme="https://zhiyuan-porg.github.io/tags/JavaWeb/" />
             <pubDate>Tue, 23 Jul 2024 10:01:03 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;jsp-mvc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jsp-mvc&#34;&gt;#&lt;/a&gt; JSP-MVC&lt;/h2&gt;
 &lt;h2 id=&#34;1jsp&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1jsp&#34;&gt;#&lt;/a&gt; 1.JSP&lt;/h2&gt;
@@ -595,6 +613,157 @@
 &lt;li&gt;&lt;strong&gt;数据访问层&lt;/strong&gt;通常不直接包含在 MVC 中，但它为模型提供数据持久化的支持。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;通过将三层架构与 MVC 结合，可以构建一个结构清晰、易于维护和扩展的应用程序。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/</guid>
+            <title>Response And ServletContext</title>
+            <link>https://zhiyuan-porg.github.io/2024/07/17/Response%20And%20ServletContext/</link>
+            <category term="后端开发" scheme="https://zhiyuan-porg.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" />
+            <category term="JavaWeb" scheme="https://zhiyuan-porg.github.io/tags/JavaWeb/" />
+            <pubDate>Wed, 17 Jul 2024 17:49:03 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;1http响应概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1http响应概述&#34;&gt;#&lt;/a&gt; 1.Http 响应概述&lt;/h2&gt;
+&lt;h3 id=&#34;11http响应信息的组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11http响应信息的组成&#34;&gt;#&lt;/a&gt; 1.1HTTP 响应信息的组成&lt;/h3&gt;
+&lt;p&gt;响应行、响应头、响应体&lt;/p&gt;
+&lt;h3 id=&#34;12响应行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12响应行&#34;&gt;#&lt;/a&gt; 1.2 响应行&lt;/h3&gt;
+&lt;p&gt;由协议及版本、响应状态码、状态信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e.g. HTTP/1.1    200    ok&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;121响应状态码分为五类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#121响应状态码分为五类&#34;&gt;#&lt;/a&gt; &lt;strong&gt;1.2.1 响应状态码分为五类&lt;/strong&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;状态码&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指示信息；表示请求已接收，继续处理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;成功；&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;重定向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;客户端错误；语法错误 or 无法实现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5xx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;服务端错误&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;122响应头&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#122响应头&#34;&gt;#&lt;/a&gt; &lt;strong&gt;1.2.2 响应头&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;由各种键值组成，键固定值可变。常见的响应头如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;响应头信息&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Location&lt;/td&gt;
+&lt;td&gt;重定向要跳转的地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content-Type&lt;/td&gt;
+&lt;td&gt;设置数据类型及字符集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Refresh&lt;/td&gt;
+&lt;td&gt;设置稍后跳转的延迟时间及页面路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content-Disposition&lt;/td&gt;
+&lt;td&gt;设置内容的处理方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;常见的状态码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;200：正确得到响应数据&lt;/p&gt;
+&lt;p&gt;302：页面重定向&lt;/p&gt;
+&lt;p&gt;304：使用了本地缓存&lt;/p&gt;
+&lt;p&gt;400：请求参数错误&lt;/p&gt;
+&lt;p&gt;404：资源不存在&lt;/p&gt;
+&lt;p&gt;405：请求的方法错误&lt;/p&gt;
+&lt;p&gt;415： 无法处理的媒体格式&lt;/p&gt;
+&lt;p&gt;500： 服务器内部错误&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;123-响应体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#123-响应体&#34;&gt;#&lt;/a&gt; &lt;strong&gt;1.2.3 响应体&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;封装服务器要返回的数据，而且可以是任意数据&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Get 请求虽然没有请求体，但它有响应体&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;2httpservletrequest对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2httpservletrequest对象&#34;&gt;#&lt;/a&gt; 2.HttpServletRequest 对象&lt;/h2&gt;
+&lt;h3 id=&#34;21简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#21简介&#34;&gt;#&lt;/a&gt; 2.1 简介&lt;/h3&gt;
+&lt;p&gt;​	HttpServletReruest 是 ServletRequest 接口的子接口，代表着一个请求对象，用来封装所有从浏览器发送给服务器的数据&lt;/p&gt;
+&lt;h3 id=&#34;22请求行相关的api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#22请求行相关的api&#34;&gt;#&lt;/a&gt; 2.2 请求行相关的 API&lt;/h3&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getMethod&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getRequestURI&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;StringBuffer&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getRequestURL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getProtocol&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 得到请求行中协议的版本&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getContextPath&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 得到项目的访问地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getRemoteAddr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 得到客户端的 IP 地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getServletPath&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 得到 servlet 的访问地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;23请求头相关的api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#23请求头相关的api&#34;&gt;#&lt;/a&gt; 2.3 请求头相关的 API&lt;/h3&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getHeader&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; headName&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 通过键取值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Enumeration&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getHeaderNames&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 请求头中键名字&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;hasMoreElements&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 是否还有下一个元素&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;E&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;nextElement&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 得到某个元素，并且指针后移一位&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;hasMoreElements () 可以与 nextElement () 搭配使用，例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Enumeration&amp;lt;String&amp;gt; headerNames = request.getHeaderNames();&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;// 此时对 headerNames 进行遍历，&lt;br /&gt;
+String name;&lt;br /&gt;
+String value;&lt;br /&gt;
+while(headerNames.hasMoreElements()){&lt;br /&gt;
+// 获取到请求头中的所有键值对&lt;br /&gt;
+ // 指针直接指向下一行，可以理解为指针在初始时指向的是 - 1，判断下一位不为空时才指针才会下移取值&lt;br /&gt;
+ name = headerNames.nextElements ();&lt;br /&gt;
+value = request.getHeader(name);&lt;br /&gt;
+}&lt;br /&gt;
+```&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;24请求参数的相关api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#24请求参数的相关api&#34;&gt;#&lt;/a&gt; 2.4 请求参数的相关 API&lt;/h3&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getParameter&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; name&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 通过参数名称取值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getParameterValues&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; name&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 得到所有同名参数值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Enumeration&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getParameterNames&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 得到所有参数的键名&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Map&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getParameterMap&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 得到所有参数的键值对&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;3请求相关的方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3请求相关的方法&#34;&gt;#&lt;/a&gt; 3. 请求相关的方法&lt;/h2&gt;
+&lt;h3 id=&#34;31作用域的介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#31作用域的介绍&#34;&gt;#&lt;/a&gt; 3.1 作用域的介绍&lt;/h3&gt;
+&lt;p&gt;​	作用域是不同的 Servlet 之间的数据共享区，存放于数据库的内存中。&lt;/p&gt;
+&lt;p&gt;​	主要分为四个：页面域（Page）、请求域（Request）、会话域（Session）、上下文域（ServletContext）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数据只能在同一个请求中共享，请求结束或其它的请求不能访问其中的数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;32相关的api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#32相关的api&#34;&gt;#&lt;/a&gt; 3.2 相关的 API&lt;/h3&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;setAttribute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;key&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Object&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getAttribute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;key&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;removeAttribute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;key&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;33请求分发的api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#33请求分发的api&#34;&gt;#&lt;/a&gt; 3.3 请求分发的 API&lt;/h3&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 将请求跳转到分发器指定的地方&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;ServletRequest&lt;/span&gt; request&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ServletResponse&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Response&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 收集分发器指定的请求的响应结果&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;ServletRequest&lt;/span&gt; request&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ServletResponse&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Response&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;4转发-and-重定向&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4转发-and-重定向&#34;&gt;#&lt;/a&gt; 4. 转发 And 重定向&lt;/h2&gt;
+&lt;h3 id=&#34;41转发&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#41转发&#34;&gt;#&lt;/a&gt; 4.1 转发&lt;/h3&gt;
+&lt;p&gt;​	由&lt;strong&gt;服务器&lt;/strong&gt;进行的页面跳转&lt;/p&gt;
+&lt;h4 id=&#34;411相关的api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#411相关的api&#34;&gt;#&lt;/a&gt; &lt;strong&gt;4.1.1 相关的 API&lt;/strong&gt;&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;request&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;getRequestDispatcher&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;URI&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;412特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#412特点&#34;&gt;#&lt;/a&gt; &lt;strong&gt;4.1.2 特点&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器的内部行为，URL 始终不变&lt;/li&gt;
+&lt;li&gt;客户端只发送了一次请求&lt;/li&gt;
+&lt;li&gt;请求域的数据不会失效&lt;/li&gt;
+&lt;li&gt;URI 不需要添上项目名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;42重定向&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#42重定向&#34;&gt;#&lt;/a&gt; 4.2 重定向&lt;/h3&gt;
+&lt;p&gt;​	&lt;strong&gt;客户端&lt;/strong&gt;根据服务器反馈的信息&lt;strong&gt;再次请求&lt;/strong&gt;服务器&lt;/p&gt;
+&lt;h4 id=&#34;421相关的api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#421相关的api&#34;&gt;#&lt;/a&gt; &lt;strong&gt;4.2.1 相关的 API&lt;/strong&gt;&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;response&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;sendRedirect&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;URL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;422特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#422特点&#34;&gt;#&lt;/a&gt; &lt;strong&gt;4.2.2 特点&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;由于是再次请求，所以地址栏会发生变化&lt;/li&gt;
+&lt;li&gt;客户端两次请求了数据&lt;/li&gt;
+&lt;li&gt;请求域中数据丢失&lt;/li&gt;
+&lt;li&gt;URL 是完整的项目名，当然也可以是外部链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]&lt;/p&gt;
+&lt;p&gt;如果不想丢失数据域中的信息的话，可以用转发哦&lt;/p&gt;
+&lt;/blockquote&gt;
  ]]></description>
         </item>
     </channel>
